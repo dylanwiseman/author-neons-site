@@ -135,12 +135,12 @@ export function Neons() {
             The Author
           </h4>
           <p className="text-white dark:text-card-foreground">
-            This is my first book and I'm figuring it all out as I go, so cut me
-            some slack. <span className="italic">The Neons</span> started as a
-            vague idea maybe 10 or 11 years ago and has morphed and materialized
-            into what it is now as I synthesized and frankensteined together
-            concepts, scenes, themes, styles, characters, and locations from
-            different books, shows, and my real-life experiences.
+            This is my first book and I&apos;m figuring it all out as I go, so
+            cut me some slack. <span className="italic">The Neons</span> started
+            as a vague idea maybe 10 or 11 years ago and has morphed and
+            materialized into what it is now as I synthesized and frankensteined
+            together concepts, scenes, themes, styles, characters, and locations
+            from different books, shows, and my real-life experiences.
             <br />
             <br />I have a penchant for immersive worldbuilding—the setting is a
             character itself—and nothing would make me happier than to one day
@@ -148,9 +148,9 @@ export function Neons() {
             <br />
             <br />
             If you like my work, please leave me a review and let me know what
-            (and who) you like best! If you don't like it, take a long walk,
-            watch the sunset, maybe treat yourself to something sweet, and move
-            on with your life as if you never read my books at all.
+            (and who) you like best! If you don&apos;t like it, take a long
+            walk, watch the sunset, maybe treat yourself to something sweet, and
+            move on with your life as if you never read my books at all.
           </p>
         </div>
       </section>
