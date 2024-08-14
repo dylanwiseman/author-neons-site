@@ -53,7 +53,10 @@ export function Neons() {
             style={{ aspectRatio: "400/600", objectFit: "cover" }}
           />
         </div>
-        <div className="flex-1 space-y-4 text-center text-white md:text-left">
+        <div
+          className="flex-1 space-y-4 text-center text-white md:text-left"
+          style={{ minWidth: "20rem" }}
+        >
           <h1 className="text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl">
             The Neons
           </h1>
@@ -63,7 +66,7 @@ export function Neons() {
           <p className="text-white dark:text-card-foreground italic">
             Release Date: Sep 13, 2024
           </p>
-          <div className="flex flex-col gap-2 sm:flex-row">
+          <div className="flex flex-col gap-2" style={{ maxWidth: "20rem" }}>
             <Link
               href="https://www.amazon.com/dp/B0DD1K4RCM"
               target="_blank noopener noreferrer"
@@ -80,8 +83,10 @@ export function Neons() {
             </button>
           </div>
           {showEmailForm && (
-            <div className="mt-4 rounded-md bg-card p-4 shadow">
-              <h3 className="text-lg font-medium">Join the Waitlist</h3>
+            <div
+              className="mt-4 rounded-md bg-card p-4 shadow"
+              style={{ maxWidth: "20rem" }}
+            >
               <p className="text-muted-foreground">
                 Enter your email to be notified when the paperback is available.
               </p>
@@ -94,7 +99,7 @@ export function Neons() {
         </div>
       </section>
       <section
-        className="container mx-0 px-4 py-12 bg-black"
+        className="container mx-0 px-8 py-12 bg-black"
         style={{ maxWidth: "100%" }}
       >
         <div className="max-w-6xl space-y-4 mx-auto">
