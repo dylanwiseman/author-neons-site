@@ -131,7 +131,11 @@ const SheetTrigger = ({
   children: ReactNode;
   onClick: () => void;
 }) => {
-  return <div onClick={onClick}>{children}</div>;
+  return (
+    <div id="sheet-trigger-div" onClick={onClick}>
+      {children}
+    </div>
+  );
 };
 
 const SheetContent = ({
@@ -145,8 +149,15 @@ const SheetContent = ({
 }) => {
   return (
     <>
-      {open && <div className="fixed inset-0 bg-black/50" onClick={onClose} />}
+      {open && (
+        <div
+          className="fixed inset-0 bg-black/50"
+          onClick={onClose}
+          style={{ background: "rgba(0,0,0,.5" }}
+        />
+      )}
       <div
+        style={{ background: "white" }}
         className={`fixed inset-y-0 right-0 w-full max-w-sm bg-white p-6 shadow-lg transition-transform duration-300 ease-in-out ${
           open ? "translate-x-0" : "translate-x-full"
         }`}
@@ -155,7 +166,7 @@ const SheetContent = ({
           onClick={onClose}
           className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none"
         >
-          <X className="h-4 w-4" />
+          <X className="h-8 w-8" />
           <span className="sr-only">Close</span>
         </button>
         {children}
@@ -166,7 +177,9 @@ const SheetContent = ({
 
 export default function PhotographyPortfolio() {
   const [filter, setFilter] = useState("All");
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
+
+  console.log(filter);
 
   const filteredImages =
     filter === "All"
@@ -185,12 +198,20 @@ export default function PhotographyPortfolio() {
     tag: string;
     onClick: (tag: string) => void;
   }) => (
+    //@ts-ignore
     <button
-      onClick={() => onClick(tag)}
-      className={`px-4 py-2 text-left ${
+      style={
         filter === tag
-          ? "bg-black text-white"
-          : "text-gray-700 hover:bg-gray-200"
+          ? { color: "white", backgroundColor: "black" }
+          : { color: "black" }
+      }
+      onClick={() => {
+        console.log("tag:", tag, typeof tag, typeof filter);
+        console.log(tag === filter);
+        onClick(tag);
+      }}
+      className={`px-4 py-2 text-left text-blue ${
+        filter === tag ? "bg-black text-white" : "text-blue hover:bg-gray-200"
       }`}
     >
       {tag}
@@ -208,12 +229,12 @@ export default function PhotographyPortfolio() {
           height={50}
           className="h-12 w-auto"
         />
+        <SheetTrigger onClick={() => setIsOpen(true)}>
+          <Button variant="outline" size="icon">
+            <Menu className="h-6 w-6" />
+          </Button>
+        </SheetTrigger>
         <Sheet open={isOpen} onOpenChange={setIsOpen}>
-          <SheetTrigger onClick={() => setIsOpen(true)}>
-            <Button variant="outline" size="icon">
-              <Menu className="h-6 w-6" />
-            </Button>
-          </SheetTrigger>
           <SheetContent open={isOpen} onClose={() => setIsOpen(false)}>
             <div className="flex flex-col space-y-4 mt-8">
               {allTags.map((tag) => (
@@ -221,7 +242,7 @@ export default function PhotographyPortfolio() {
               ))}
               <div className="flex space-x-4 mt-4">
                 <Link
-                  href="mailto:dylan@example.com"
+                  href="mailto:dylan.wiseman22@gmail.com"
                   className="text-black hover:text-gray-700"
                 >
                   <Mail className="w-6 h-6" />
