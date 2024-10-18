@@ -3,9 +3,7 @@
 import { useState, ReactNode, useEffect } from "react";
 import * as React from "react";
 import Box from "@mui/material/Box";
-import Paper from "@mui/material/Paper";
 import Masonry from "@mui/lab/Masonry";
-import { styled } from "@mui/material/styles";
 import Alli from "../public/kitsune2.jpg";
 import Anna from "../public/a3.jpg";
 import Jostan from "../public/Jostan.jpg";
@@ -30,7 +28,6 @@ import Link from "next/link";
 import { Mail, Instagram, Menu, X } from "lucide-react";
 import Logo from "../public/dyllogo.png";
 
-// Sample image data - replace with your actual image data
 const images = [
   {
     src: Alli,
@@ -130,6 +127,7 @@ const images = [
   // Add more images as needed
 ];
 
+//@ts-ignore
 const allTags = ["All", ...new Set(images.flatMap((img) => img.tags))];
 
 // Button component
