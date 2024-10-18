@@ -2,6 +2,31 @@
 
 import { useState, ReactNode } from "react";
 import PlaceholderJPG from "../public/Neons Mockup 2.jpg";
+import * as React from "react";
+import Box from "@mui/material/Box";
+import Paper from "@mui/material/Paper";
+import Masonry from "@mui/lab/Masonry";
+import { styled } from "@mui/material/styles";
+import ImageMasonry from "../components/ImageMasonry";
+import Alli from "../public/kitsune2.jpg";
+import Anna from "../public/a3.jpg";
+import Jostan from "../public/Jostan.jpg";
+import Kilans from "../public/kv.jpg";
+import Graysen from "../public/graysen.jpg";
+import Grays from "../public/grays.jpg";
+import Cole from "../public/cole.jpg";
+import Meg2 from "../public/meg2.jpg";
+import Meg1 from "../public/meg1.jpg";
+import Kitsune from "../public/k2.jpg";
+import Skates from "../public/skates.jpg";
+import Lineup from "../public/porsche.jpg";
+import GT from "../public/gt.jpg";
+import K4 from "../public/kilans4.jpg";
+import Fam from "../public/fam.jpg";
+import Tamarack from "../public/tamarack.jpg";
+import Lambo from "../public/lambo.jpg";
+import Green from "../public/green.jpg";
+import Muscle from "../public/muscleup-2.jpg";
 import Image from "next/image";
 import Link from "next/link";
 import { Mail, Instagram, Menu, X } from "lucide-react";
@@ -10,54 +35,99 @@ import Logo from "../public/dyllogo.png";
 // Sample image data - replace with your actual image data
 const images = [
   {
-    src: PlaceholderJPG,
-    alt: "Portrait 1",
-    tags: ["Portraits"],
+    src: Alli,
+    alt: "Kitsune GR86",
+    tags: ["Portraits", "Cars"],
   },
   {
-    src: PlaceholderJPG,
-    alt: "Brand 1",
-    tags: ["Brands"],
-  },
-  {
-    src: PlaceholderJPG,
-    alt: "Car 1",
-    tags: ["Cars"],
-  },
-  {
-    src: PlaceholderJPG,
-    alt: "Event 1",
-    tags: ["Events"],
-  },
-  {
-    src: PlaceholderJPG,
-    alt: "Adventure 1",
+    src: Tamarack,
+    alt: "Tamarack Beach",
     tags: ["Adventure"],
   },
   {
-    src: PlaceholderJPG,
-    alt: "Portrait 2",
+    src: Graysen,
+    alt: "Graysen",
     tags: ["Portraits"],
   },
   {
-    src: PlaceholderJPG,
-    alt: "Brand 2",
-    tags: ["Brands"],
+    src: Anna,
+    alt: "Arcade Anna",
+    tags: ["Portraits"],
   },
   {
-    src: PlaceholderJPG,
-    alt: "Car 2",
-    tags: ["Cars"],
+    src: Green,
+    alt: "Utah",
+    tags: ["Adventure"],
   },
   {
-    src: PlaceholderJPG,
-    alt: "Event 2",
+    src: Jostan,
+    alt: "Jostan",
+    tags: ["Portraits"],
+  },
+  {
+    src: Kilans,
+    alt: "Viper Room",
     tags: ["Events"],
   },
   {
-    src: PlaceholderJPG,
-    alt: "Adventure 2",
-    tags: ["Adventure"],
+    src: Skates,
+    alt: "Skates",
+    tags: ["Portraits"],
+  },
+  {
+    src: Cole,
+    alt: "Cole",
+    tags: ["Portraits"],
+  },
+  {
+    src: Meg2,
+    alt: "Meg",
+    tags: ["Portraits"],
+  },
+  {
+    src: GT,
+    alt: "Ford GT",
+    tags: ["Cars"],
+  },
+  {
+    src: Meg1,
+    alt: "Meg",
+    tags: ["Portraits"],
+  },
+  {
+    src: Lineup,
+    alt: "Porsche",
+    tags: ["Cars", "Events"],
+  },
+  {
+    src: Grays,
+    alt: "Graysen",
+    tags: ["Portraits"],
+  },
+  {
+    src: K4,
+    alt: "Kilans",
+    tags: ["Events", "Portraits"],
+  },
+  {
+    src: Lambo,
+    alt: "Lambo",
+    tags: ["Cars", "Events", "Brands"],
+  },
+  {
+    src: Fam,
+    alt: "Fam",
+    tags: ["Portraits"],
+  },
+  {
+    src: Kitsune,
+    alt: "Kitsune",
+    tags: ["Portraits", "Cars"],
+  },
+  {
+    src: Muscle,
+    alt: "Muscle Up",
+    tags: ["Brands"],
   },
   // Add more images as needed
 ];
@@ -178,6 +248,19 @@ const SheetContent = ({
 export default function PhotographyPortfolio() {
   const [filter, setFilter] = useState("All");
   const [isOpen, setIsOpen] = useState(true);
+
+  const Label = styled(Paper)(({ theme }) => ({
+    backgroundColor: "#fff",
+    ...theme.typography.body2,
+    padding: theme.spacing(0.5),
+    textAlign: "center",
+    color: theme.palette.text.secondary,
+    borderBottomLeftRadius: 0,
+    borderBottomRightRadius: 0,
+    ...theme.applyStyles("dark", {
+      backgroundColor: "#1A2027",
+    }),
+  }));
 
   console.log(filter);
 
@@ -306,6 +389,60 @@ export default function PhotographyPortfolio() {
 
       {/* Main Content */}
       <main className="flex-1 p-4 md:p-8">
+        <Box sx={{ minHeight: 829 }}>
+          <Masonry columns={3} spacing={2}>
+            {images.map((img, index) => (
+              <div key={index}>
+                {/* <img
+                  srcSet={`${img.src}?w=162&auto=format&dpr=2 2x`}
+                  src={`${img.src}?w=162&auto=format`}
+                  loading="lazy"
+                  style={{
+                    borderBottomLeftRadius: 4,
+                    borderBottomRightRadius: 4,
+                    display: "block",
+                    width: "100%",
+                  }}
+                /> */}
+                <Image
+                  key={index}
+                  src={img.src}
+                  alt={img.alt}
+                  // // fill
+                  // sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                  // className="object-contain"
+                  // style={{ maxHeight: "100%", minHeight: "100%", margin: "2px" }}
+                  // height={400}
+                />
+              </div>
+            ))}
+          </Masonry>
+        </Box>
+        {/* <div
+          style={{
+            width: "100%",
+            maxHeight: "400px",
+            display: "flex",
+            flexDirection: "row",
+            flexWrap: "wrap",
+          }}
+        >
+          {filteredImages.map((img, index) => (
+            <Image
+              key={index}
+              src={img.src}
+              alt={img.alt}
+              // fill
+              sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+              className="object-contain"
+              style={{ maxHeight: "100%", minHeight: "100%", margin: "2px" }}
+              height={400}
+            />
+          ))}
+        </div> */}
+      </main>
+
+      {/* <main className="flex-1 p-4 md:p-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {filteredImages.map((img, index) => (
             <div key={index} className="relative aspect-square overflow-hidden">
@@ -319,7 +456,7 @@ export default function PhotographyPortfolio() {
             </div>
           ))}
         </div>
-      </main>
+      </main> */}
     </div>
   );
 }
