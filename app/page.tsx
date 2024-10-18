@@ -1,13 +1,11 @@
 "use client";
 
-import { useState, ReactNode } from "react";
-import PlaceholderJPG from "../public/Neons Mockup 2.jpg";
+import { useState, ReactNode, useEffect } from "react";
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Masonry from "@mui/lab/Masonry";
 import { styled } from "@mui/material/styles";
-import ImageMasonry from "../components/ImageMasonry";
 import Alli from "../public/kitsune2.jpg";
 import Anna from "../public/a3.jpg";
 import Jostan from "../public/Jostan.jpg";
@@ -247,22 +245,34 @@ const SheetContent = ({
 
 export default function PhotographyPortfolio() {
   const [filter, setFilter] = useState("All");
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
 
-  const Label = styled(Paper)(({ theme }) => ({
-    backgroundColor: "#fff",
-    ...theme.typography.body2,
-    padding: theme.spacing(0.5),
-    textAlign: "center",
-    color: theme.palette.text.secondary,
-    borderBottomLeftRadius: 0,
-    borderBottomRightRadius: 0,
-    ...theme.applyStyles("dark", {
-      backgroundColor: "#1A2027",
-    }),
-  }));
+  const [columns, setColumns] = useState(1); // Default to 1 column
 
-  console.log(filter);
+  useEffect(() => {
+    const handleResize = () => {
+      const width = window.innerWidth;
+
+      if (width >= 1024) {
+        setColumns(4); // Large screens
+      } else if (width >= 768) {
+        setColumns(3); // Medium screens
+      } else if (width >= 640) {
+        setColumns(2); // Small screens
+      } else {
+        setColumns(1); // Extra small screens
+      }
+    };
+
+    // Set initial column count
+    handleResize();
+
+    // Add resize event listener
+    window.addEventListener("resize", handleResize);
+
+    // Clean up event listener on component unmount
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const filteredImages =
     filter === "All"
@@ -331,18 +341,14 @@ export default function PhotographyPortfolio() {
                   <Mail className="w-6 h-6" />
                 </Link>
                 <Link
-                  href="https://instagram.com/dylanwiseman"
+                  href="https://instagram.com/dylwiseman"
                   className="text-black hover:text-gray-700"
                 >
                   <Instagram className="w-6 h-6" />
                 </Link>
               </div>
               <div className="mt-4 text-sm">
-                <p>
-                  [Your "About Me" information goes here. Write a brief
-                  description about yourself, your photography style, and your
-                  experience.]
-                </p>
+                <p>DM or email to book a shoot :)</p>
               </div>
             </div>
           </SheetContent>
@@ -373,90 +379,29 @@ export default function PhotographyPortfolio() {
             <Mail className="w-6 h-6" />
           </Link>
           <Link
-            href="https://instagram.com/dylanwiseman"
+            href="https://instagram.com/dylwiseman"
             className="text-black hover:text-gray-700"
           >
             <Instagram className="w-6 h-6" />
           </Link>
         </div>
         <div className="text-sm">
-          <p>
-            [I like my pics to pack a punch, whatever that means. DM or email to
-            book :)]
-          </p>
+          <p>DM or email to book a shoot :)</p>
         </div>
       </aside>
 
       {/* Main Content */}
       <main className="flex-1 p-4 md:p-8">
         <Box sx={{ minHeight: 829 }}>
-          <Masonry columns={3} spacing={2}>
-            {images.map((img, index) => (
+          <Masonry columns={columns} spacing={1}>
+            {filteredImages.map((img, index) => (
               <div key={index}>
-                {/* <img
-                  srcSet={`${img.src}?w=162&auto=format&dpr=2 2x`}
-                  src={`${img.src}?w=162&auto=format`}
-                  loading="lazy"
-                  style={{
-                    borderBottomLeftRadius: 4,
-                    borderBottomRightRadius: 4,
-                    display: "block",
-                    width: "100%",
-                  }}
-                /> */}
-                <Image
-                  key={index}
-                  src={img.src}
-                  alt={img.alt}
-                  // // fill
-                  // sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                  // className="object-contain"
-                  // style={{ maxHeight: "100%", minHeight: "100%", margin: "2px" }}
-                  // height={400}
-                />
+                <Image key={index} src={img.src} alt={img.alt} />
               </div>
             ))}
           </Masonry>
         </Box>
-        {/* <div
-          style={{
-            width: "100%",
-            maxHeight: "400px",
-            display: "flex",
-            flexDirection: "row",
-            flexWrap: "wrap",
-          }}
-        >
-          {filteredImages.map((img, index) => (
-            <Image
-              key={index}
-              src={img.src}
-              alt={img.alt}
-              // fill
-              sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
-              className="object-contain"
-              style={{ maxHeight: "100%", minHeight: "100%", margin: "2px" }}
-              height={400}
-            />
-          ))}
-        </div> */}
       </main>
-
-      {/* <main className="flex-1 p-4 md:p-8">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {filteredImages.map((img, index) => (
-            <div key={index} className="relative aspect-square overflow-hidden">
-              <Image
-                src={img.src}
-                alt={img.alt}
-                fill
-                sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                className="object-cover"
-              />
-            </div>
-          ))}
-        </div>
-      </main> */}
     </div>
   );
 }
