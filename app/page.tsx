@@ -40,6 +40,7 @@ import Momo2 from "../public/momo2.jpg";
 import LC from "../public/lc.jpg";
 import Charlie from "../public/charlie.jpg";
 import Aniqi from "../public/aniqi.jpg";
+import Supra from "../public/supra.jpg";
 import Aniqi2 from "../public/aq.jpg";
 import Image from "next/image";
 import Link from "next/link";
@@ -73,6 +74,11 @@ const images = [
     tags: ["Portraits"],
   },
   {
+    src: Supra,
+    alt: "Supra",
+    tags: ["Cars", "Events", "Brands + Events"],
+  },
+  {
     src: Lex1,
     alt: "Lex",
     tags: ["Portraits"],
@@ -95,7 +101,7 @@ const images = [
   {
     src: Kilans,
     alt: "Viper Room",
-    tags: ["Events"],
+    tags: ["Events", "Brands + Events"],
   },
   {
     src: Charlie,
@@ -110,12 +116,12 @@ const images = [
   {
     src: Momo1,
     alt: "Momoyao",
-    tags: ["Portraits", "Brands"],
+    tags: ["Portraits", "Brands + Events"],
   },
   {
     src: SM2,
     alt: "SM2",
-    tags: ["Brands", "Adventure"],
+    tags: ["Brands + Events", "Adventure"],
   },
   {
     src: Cole,
@@ -125,7 +131,7 @@ const images = [
   {
     src: Rollink1,
     alt: "Rollink",
-    tags: ["Brands", "Adventure"],
+    tags: ["Brands + Events", "Adventure"],
   },
   {
     src: Meg2,
@@ -140,7 +146,7 @@ const images = [
   {
     src: GT,
     alt: "Ford GT",
-    tags: ["Cars"],
+    tags: ["Cars", "Brands + Events"],
   },
   {
     src: Maycie,
@@ -155,7 +161,7 @@ const images = [
   {
     src: Lineup,
     alt: "Porsche",
-    tags: ["Cars", "Events"],
+    tags: ["Cars", "Events", "Brands + Events"],
   },
   {
     src: Grays,
@@ -165,27 +171,27 @@ const images = [
   {
     src: K4,
     alt: "Kilans",
-    tags: ["Events", "Portraits"],
+    tags: ["Events", "Portraits", "Brands + Events"],
   },
   {
     src: SM1,
     alt: "Snow1",
-    tags: ["Brands", "Adventure"],
+    tags: ["Brands + Events", "Adventure"],
   },
   {
     src: Lambo,
     alt: "Lambo",
-    tags: ["Cars", "Events", "Brands"],
+    tags: ["Cars", "Events", "Brands + Events"],
   },
   {
     src: John,
     alt: "John",
-    tags: ["Brands", "Adventure"],
+    tags: ["Brands + Events", "Adventure"],
   },
   {
     src: Rollink2,
     alt: "Rollink2",
-    tags: ["Brands", "Adventure"],
+    tags: ["Brands + Events", "Adventure"],
   },
   {
     src: Fam,
@@ -195,12 +201,12 @@ const images = [
   {
     src: Momo2,
     alt: "Momoyao2",
-    tags: ["Brands"],
+    tags: ["Brands + Events"],
   },
   {
     src: Lax,
     alt: "Lax",
-    tags: ["Brands"],
+    tags: ["Brands + Events"],
   },
   {
     src: Kitsune,
@@ -210,12 +216,12 @@ const images = [
   {
     src: LC,
     alt: "Lucky Cat",
-    tags: ["Brands"],
+    tags: ["Brands + Events"],
   },
   {
     src: Aniqi2,
     alt: "Aniqi",
-    tags: ["Brands"],
+    tags: ["Brands + Events"],
   },
   {
     src: San,
@@ -225,13 +231,14 @@ const images = [
   {
     src: Muscle,
     alt: "Muscle Up",
-    tags: ["Brands"],
+    tags: ["Brands + Events"],
   },
   // Add more images as needed
 ];
 
 //@ts-ignore
-const allTags = ["All", ...new Set(images.flatMap((img) => img.tags))];
+// const allTags = ["All", ...new Set(images.flatMap((img) => img.tags))];
+const allTags = ["All", "Portraits", "Brands + Events"];
 
 // Button component
 const Button = ({
