@@ -481,7 +481,7 @@ export default function PhotographyPortfolio() {
         </nav>
         <div className="flex space-x-4 mb-4">
           <Link
-            href="mailto:dylan@example.com"
+            href="mailto:dylan.wiseman22@gmail.com"
             className="text-black hover:text-gray-700"
           >
             <Mail className="w-6 h-6" />
