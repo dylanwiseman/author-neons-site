@@ -6,7 +6,7 @@ import Box from "@mui/material/Box";
 import Masonry from "@mui/lab/Masonry";
 import Alli from "../public/kitsune2.jpg";
 import Anna from "../public/a3.jpg";
-import Jostan from "../public/Jostan.jpg";
+import Jostan from "../public/Jostan-2.jpg";
 import Kilans from "../public/kv.jpg";
 import Graysen from "../public/graysen.jpg";
 import Grays from "../public/grays.jpg";
@@ -16,6 +16,7 @@ import Meg1 from "../public/meg1.jpg";
 import Kitsune from "../public/k2.jpg";
 import Skates from "../public/skates.jpg";
 import Lineup from "../public/porsche.jpg";
+import Kelsey from "../public/kelsey.jpg";
 import GT from "../public/gt.jpg";
 import K4 from "../public/kilans4.jpg";
 import Fam from "../public/fam.jpg";
@@ -23,6 +24,23 @@ import Tamarack from "../public/tamarack.jpg";
 import Lambo from "../public/lambo.jpg";
 import Green from "../public/green.jpg";
 import Muscle from "../public/muscleup-2.jpg";
+import SM1 from "../public/sm1.jpg";
+import SM2 from "../public/sm2.jpg";
+import Maycie from "../public/maycie.jpg";
+import Lex1 from "../public/lex1.jpg";
+import Lax from "../public/lax.jpg";
+import Lex2 from "../public/lex2.jpg";
+import Davis from "../public/davis.jpg";
+import John from "../public/john.jpg";
+import San from "../public/san.jpg";
+import Rollink1 from "../public/rollink1.jpg";
+import Rollink2 from "../public/rollink2.jpg";
+import Momo1 from "../public/momo.jpg";
+import Momo2 from "../public/momo2.jpg";
+import LC from "../public/lc.jpg";
+import Charlie from "../public/charlie.jpg";
+import Aniqi from "../public/aniqi.jpg";
+import Aniqi2 from "../public/aq.jpg";
 import Image from "next/image";
 import Link from "next/link";
 import { Mail, Instagram, Menu, X } from "lucide-react";
@@ -45,14 +63,29 @@ const images = [
     tags: ["Portraits"],
   },
   {
+    src: Davis,
+    alt: "Davis",
+    tags: ["Portraits"],
+  },
+  {
     src: Anna,
     alt: "Arcade Anna",
+    tags: ["Portraits"],
+  },
+  {
+    src: Lex1,
+    alt: "Lex",
     tags: ["Portraits"],
   },
   {
     src: Green,
     alt: "Utah",
     tags: ["Adventure"],
+  },
+  {
+    src: Kelsey,
+    alt: "Kelsey",
+    tags: ["Portraits"],
   },
   {
     src: Jostan,
@@ -65,9 +98,24 @@ const images = [
     tags: ["Events"],
   },
   {
+    src: Charlie,
+    alt: "Charlie",
+    tags: ["Portraits"],
+  },
+  {
     src: Skates,
     alt: "Skates",
     tags: ["Portraits"],
+  },
+  {
+    src: Momo1,
+    alt: "Momoyao",
+    tags: ["Portraits", "Brands"],
+  },
+  {
+    src: SM2,
+    alt: "SM2",
+    tags: ["Brands", "Adventure"],
   },
   {
     src: Cole,
@@ -75,14 +123,29 @@ const images = [
     tags: ["Portraits"],
   },
   {
+    src: Rollink1,
+    alt: "Rollink",
+    tags: ["Brands", "Adventure"],
+  },
+  {
     src: Meg2,
     alt: "Meg",
+    tags: ["Portraits"],
+  },
+  {
+    src: Lex2,
+    alt: "Lex2",
     tags: ["Portraits"],
   },
   {
     src: GT,
     alt: "Ford GT",
     tags: ["Cars"],
+  },
+  {
+    src: Maycie,
+    alt: "Maycie",
+    tags: ["Portraits"],
   },
   {
     src: Meg1,
@@ -105,9 +168,24 @@ const images = [
     tags: ["Events", "Portraits"],
   },
   {
+    src: SM1,
+    alt: "Snow1",
+    tags: ["Brands", "Adventure"],
+  },
+  {
     src: Lambo,
     alt: "Lambo",
     tags: ["Cars", "Events", "Brands"],
+  },
+  {
+    src: John,
+    alt: "John",
+    tags: ["Brands", "Adventure"],
+  },
+  {
+    src: Rollink2,
+    alt: "Rollink2",
+    tags: ["Brands", "Adventure"],
   },
   {
     src: Fam,
@@ -115,9 +193,34 @@ const images = [
     tags: ["Portraits"],
   },
   {
+    src: Momo2,
+    alt: "Momoyao2",
+    tags: ["Brands"],
+  },
+  {
+    src: Lax,
+    alt: "Lax",
+    tags: ["Brands"],
+  },
+  {
     src: Kitsune,
     alt: "Kitsune",
-    tags: ["Portraits", "Cars"],
+    tags: ["Portraits"],
+  },
+  {
+    src: LC,
+    alt: "Lucky Cat",
+    tags: ["Brands"],
+  },
+  {
+    src: Aniqi2,
+    alt: "Aniqi",
+    tags: ["Brands"],
+  },
+  {
+    src: San,
+    alt: "Sarah Ann",
+    tags: ["Portraits"],
   },
   {
     src: Muscle,
